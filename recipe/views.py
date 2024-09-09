@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -8,6 +8,10 @@ from recipe.serializer import RecipeSerializer
 
 
 # Create your views here.
+
+def index(request):
+    return render(request, 'home.html', {})
+
 
 @api_view(['GET'])
 def recipe_list(request):
